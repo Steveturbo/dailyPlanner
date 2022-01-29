@@ -37,81 +37,22 @@ $(document).ready(function () {
     })
    
 
+for (let i = 8; i <= 17; i++) {
+    // load saved items
+    var savedText = localStorage.getItem("text-" + i);
+    //                                    "text-8"
+    $("#row-"+i+">textarea").val(savedText);
+    // "#row-8>textarea"
+        
+    var targetBtn = $("#row-"+i+">button")
 
+    // when we click on targetBtn
+    targetBtn.on("click", function() {
+        var text = $("#row-"+i+">textarea").val();
 
-//save button function, stores in allNotes array and local storage data
-$(".saveBtn").on("click", function () {
-    var di = $(this).data('index');
-    allNotes[di] = $(classes[di]).val();
-    localStorage.setItem('allNotes', JSON.stringify(allNotes))
-    alert("Saved")
-
-})
-
-
-rowTime = parseInt($(this).attr("id").split("-")[1]);
-
-var di = $(this).data('index');
-allNotes[di] = $(classes[di]).val();
-
-<button type="button" class="saveBtn" data-index="4">Save</button>
-
-//grabData function, restores data to rows from local storage
-function grabData() {
-    allNotes = JSON.parse(localStorage.getItem("allNotes"));
-    if (allNotes == null) {
-        allNotes = ["", "", "", "", "", "", "", "", "", "", ""];
-        return;
-    }
-    for (i = 0; i < classes.length; i++) {
-        ($(classes[i])).val(allNotes[i]);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        localStorage.setItem("text-"+i,text);
+    });
+}
 
 
 
