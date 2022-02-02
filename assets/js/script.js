@@ -46,12 +46,12 @@ for (let i = 8; i <= 17; i++) {
         
     var targetBtn = $("#row-"+i+">button")
 
-    // when we click on targetBtn
+    // when we click on targetBtn saves
     targetBtn.on("click", function() {
         var text = $("#row-"+i+">textarea").val();
 
         localStorage.setItem("text-"+i,text);
-    });
+    }); //application-localstorage-file.save(string task +hour,text jq function)
 }
 
 
